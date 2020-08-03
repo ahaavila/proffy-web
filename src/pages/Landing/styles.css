@@ -1,0 +1,169 @@
+/* Estilo da minha página em si */
+#page-landing {
+  /* Vai ocupar a pagina toda */
+  width: 100vw;
+  height: 100vh;
+
+  /* Vai ser tudo centralizado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Cor e fundo padrão */
+  color: var(--color-text-in-primary);
+  background: var(--color-primary);
+}
+
+/* Estilização da logo */
+.logo-container img {
+  height: 100%;
+}
+
+/* Estilização do h2 embaixo da logo */
+.logo-container h2 {
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 4.6rem;
+  margin-top: 0.8rem;
+}
+
+/* Estilo da div da logo */
+.logo-container {
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+
+/* Estilo para imagem não ultrapassar a página */
+.hero-image {
+  width: 100%;
+}
+
+/* Estilos da div dos botões */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin: 3.2rem 0;
+}
+
+/* Estilo dos botões */
+.buttons-container a {
+  width: 30rem;
+  height: 10.4rem;
+  border-radius: 0.8rem;
+  font: 700 2.0rem Archivo;
+
+  /* Alinhamento dos botões */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--color-button-text);
+
+  transition: background-color 0.2s;
+}
+
+.buttons-container a:first-child {
+  margin-right: 1.6rem;
+}
+
+/* Estilo do icone no botão */
+.buttons-container a img {
+  width: 4rem;
+}
+
+/* Cor do botão study */
+.buttons-container a.study {
+  background: var(--color-primary-lighter);
+}
+
+/* Cor do botão give-classes */
+.buttons-container a.give-classes {
+  background: var(--color-secundary);
+}
+
+/* Efeito hover no botão study */
+.buttons-container a.study:hover {
+  background: var(--color-primary-ligh);
+}
+
+/* Efeito hover no botão give-classes */
+.buttons-container a.give-classes:hover {
+  background: var(--color-secundary-dark);
+}
+
+/* Estilo da imagem do botão */
+.buttons-container a img {
+  margin-right: 2.4rem;
+}
+
+/* Estilo na div de total de conexões */
+.total-connections {
+  font-size: 1.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo da imagem total de conexões */
+.total-connections img {
+  margin-left: 0.8rem;
+}
+
+/* Estilo caso o monitor tenha mais de 1100px */
+@media (min-width: 1100px) {
+  #page-landing-content {
+    max-width: 1100px;
+
+    /* Estilizando com grids */
+    display: grid;
+    /* Vamos ter 2 linhas, a 1ª com 350px e a outra com o que sobrar */
+    grid-template-rows: 350px 1fr;
+    /* Vamos ter 3 colunas, a 1ª ocupando 50%, a 2ª e a 3ª dividindo o restante */
+    grid-template-columns: 2fr 1fr 1fr;
+    /* Então vamos dizer o que cada coisa vai ocupar */
+    grid-template-areas: 
+      /* Na primeira linha, a 1ª coluna vai ser a logo, a 2ª e a 3ª colunas a hero */
+      "logo hero hero"
+      /* Na segunda linha, a 1ª e 2ª colunas vão ser os buttons e a 3ª coluna o total */
+      "buttons buttons total"
+    ;
+  }
+
+  /* Agora vou dizer qual elemento vai pertencer a qual template-area */
+  .logo-container {
+    grid-area: logo;
+    align-self: center;
+    text-align: left;
+    margin: 0;
+  }
+
+  .logo-container h2 {
+    text-align: initial;
+    font-size: 3.6rem;
+  }
+
+  .logo-container img {
+    height: 100%;
+  }
+
+  .hero-image {
+    grid-area: hero;
+    justify-self: end;
+  }
+
+  .buttons-container {
+    grid-area: buttons;
+    justify-content: flex-start;
+  }
+
+  .buttons-container a {
+    font-size: 2.4rem;
+  }
+
+  .total-connections {
+    grid-area: total;
+    justify-self: end;
+  }
+}
